@@ -7,7 +7,7 @@ function PageList() {
     // 임시로 페이지 하나만 설정했습니다.
     <button
       key="1"
-      className="button text-base leading-normal mr-0.5 active:bg-slate-400	text-white"
+      className="button text-base leading-normal mr-0.5 active:bg-slate-400	active:text-white"
     >
       1
     </button>,
