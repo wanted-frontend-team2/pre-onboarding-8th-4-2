@@ -1,35 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-
-const PageListStyle = styled.div`
-  margin-bottom: 20px;
-  text-align: center;
-`;
-
-const Page = styled.button`
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border: 1px solid lightgray;
-  ${({ active }) =>
-    active &&
-    `
-        background: gray;
-        color: #fff;
-  `}
-  margin-right: 3px;
-`;
+import React from 'react';
 
 function PageList() {
   const pageArray = [];
 
   pageArray.push(
     // 임시로 페이지 하나만 설정했습니다.
-    <Page key="1">1</Page>
+    <button
+      key="1"
+      className="button text-base leading-normal mr-0.5 active:bg-slate-400	text-white"
+    >
+      1
+    </button>,
   );
 
-  return <PageListStyle>{pageArray}</PageListStyle>;
+  return <div className="mb-5 text-center">{pageArray}</div>;
 }
 
 export default PageList;
