@@ -1,7 +1,7 @@
-import React from "react";
-import CommentList from "./pages/CommentList";
-import PageList from "./pages/PageList";
-import Form from "./pages/Form";
+import React from 'react';
+import CommentList from './components/CommentList';
+import PageList from './components/PageList';
+import Form from './components/Form';
 
 function App() {
   return (
