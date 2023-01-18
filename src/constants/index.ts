@@ -13,7 +13,10 @@ interface Input {
 }
 
 export const INPUTS: Input[] = [
-  { name: 'profile_url', placeholder: 'https://picsum.photos/id/1/50/50' },
+  {
+    name: 'profile_url',
+    placeholder: '프로필 이미지 링크',
+  },
   { name: 'author', placeholder: '작성자' },
   { name: 'content', placeholder: '내용' },
   { name: 'createdAt', placeholder: '2022-01-17' },

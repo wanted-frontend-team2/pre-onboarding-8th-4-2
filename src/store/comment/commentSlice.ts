@@ -22,6 +22,9 @@ const commentSlice = createSlice({
     setInputValues(state, action) {
       state.inputValues[action.payload.name] = action.payload.value;
     },
+    resetInputValues(state) {
+      state.inputValues = DEFAULT_INPUT_VALUES;
+    },
     editComment(state, action) {
       const target = state.comments.find(
         comment => comment.id === action.payload,
@@ -98,7 +101,12 @@ const commentSlice = createSlice({
 
 export const getComments = (state: any) => state.comment.comments;
 
-export const { setInputValues, setCurrentPage, setPageSection, editComment } =
-  commentSlice.actions;
+export const {
+  setInputValues,
+  resetInputValues,
+  setCurrentPage,
+  setPageSection,
+  editComment,
+} = commentSlice.actions;
 
 export default commentSlice.reducer;
