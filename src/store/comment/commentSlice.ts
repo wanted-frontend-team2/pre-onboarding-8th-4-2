@@ -42,8 +42,7 @@ const commentSlice = createSlice({
       }
       if (action.payload === 'prev') {
         state.currentSection -= 1;
-        state.currentPage =
-          state.currentSection * state.pageCount - (state.pageCount - 1);
+        state.currentPage = state.currentSection * state.pageCount;
       }
       state.lastPage =
         state.currentSection * state.pageCount > state.totalPage
