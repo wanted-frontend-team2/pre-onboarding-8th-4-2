@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { AppDispatch } from '../../store/index';
+import { AppDispatch, RootState } from '../../store/index';
 import { actions } from '../../store/comment/commentActions';
 import { getComments } from '../../store/comment/commentSlice';
 import { CommentItemType } from '../../types/index';
@@ -14,6 +14,9 @@ import Update from '../crud/Update';
 function Comments() {
   const dispatch = useDispatch<AppDispatch>();
   const comments = useSelector(getComments);
+  const currentPage = useSelector(
+    (state: RootState) => state.comment.currentPage,
+  );
 
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [editItem, setEditItem] = useState<any>({
@@ -23,7 +26,8 @@ function Comments() {
 
   useEffect(() => {
     dispatch(actions.getCommentData());
-  }, [dispatch]);
+    dispatch(actions.fetchCommentsByPage(currentPage));
+  }, [currentPage, dispatch]);
 
   return (
     <>

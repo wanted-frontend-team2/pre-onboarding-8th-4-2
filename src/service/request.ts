@@ -9,6 +9,8 @@ const instance = axios.create({
 
 const apis = {
   get: () => instance.get(`/`),
+  getComments: (currentPage: number) =>
+    instance.get(`/?_page=${currentPage}&_limit=4&_order=desc&_sort=createdAt`),
   create: (comment: any) => instance.post('/', comment),
   update: (id: any, comment: any) => instance.put(`/${id}`, comment),
   delete: (id: any) => instance.delete(`/${id}`),

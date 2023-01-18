@@ -24,8 +24,13 @@ const commentSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(actions.getCommentData.fulfilled, (state: any, action) => {
+    builder.addCase(actions.getCommentData.fulfilled, (state, action) => {
+      state.totalPage = action.payload.length;
+    });
+
+    builder.addCase(actions.fetchCommentsByPage.fulfilled, (state, action) => {
       state.comments = action.payload;
+      if (state.currentPage === 0) state.currentPage = 1;
     });
 
     builder.addCase(

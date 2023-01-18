@@ -14,6 +14,17 @@ export const actions = {
     }
     return null;
   }),
+
+  fetchCommentsByPage: createAsyncThunk(
+    'fetchCommentsByPage',
+    async (currentPage: number) => {
+      const response = await apis.getComments(
+        currentPage === 0 ? 1 : currentPage,
+      );
+      return response.data;
+    },
+  ),
+
   createCommentData: createAsyncThunk(
     'createCommentData',
     async (comment: CommentItemType) => {
