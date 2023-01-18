@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { DEFAULT_INPUT_VALUES } from 'src/components/constants';
+import { DEFAULT_INPUT_VALUES } from 'src/constants';
 import { CommentState } from '../../types/index';
 import { actions } from './commentActions';
 
@@ -18,7 +18,11 @@ const commentInitialState: CommentState = {
 const commentSlice = createSlice({
   name: 'comment',
   initialState: commentInitialState,
-  reducers: {},
+  reducers: {
+    setInputValues(state, action) {
+      state.inputValues[action.payload.name] = action.payload.value;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(actions.getCommentData.fulfilled, (state: any, action) => {
       state.comments = action.payload;
@@ -50,6 +54,6 @@ const commentSlice = createSlice({
 
 export const getComments = (state: any) => state.comment.comments;
 
-export const commentActions = commentSlice.actions;
+export const { setInputValues } = commentSlice.actions;
 
 export default commentSlice.reducer;

@@ -1,10 +1,11 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { ChangeEvent, FormEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { CommentItemType } from 'src/types';
+import { setInputValues } from 'src/store/comment/commentSlice';
 import { actions } from '../../store/comment/commentActions';
-import { AppDispatch } from '../../store/index';
+import { AppDispatch, RootState } from '../../store/index';
+import { INPUTS } from '../../constants/index';
 
 const FormStyle = styled.form`
   & {
@@ -31,74 +32,42 @@ const FormStyle = styled.form`
 
 function Create() {
   const dispatch = useDispatch<AppDispatch>();
-  const date = new Date().toISOString();
+  const inputValues = useSelector(
+    (state: RootState) => state.comment.inputValues,
+  );
 
-  const regex = /[^0-9]/g;
-  const numId = Number(date.replace(regex, ''));
-
-  const [inputValue, setInputValue] = useState<CommentItemType>({
-    id: numId,
-    author: '',
-    content: '',
-    createdAt: '',
-    profile_url: '',
-  });
-
-  const inputValueHandler = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setInputValue({
-      ...inputValue,
-      [e.target.name]: e.target.value,
-    });
+    dispatch(setInputValues({ name: e.target.name, value: e.target.value }));
   };
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
-
-    dispatch(actions.createCommentData(inputValue));
-
-    setInputValue({
-      id: numId,
-      author: '',
-      content: '',
-      createdAt: '',
-      profile_url: '',
-    });
+    dispatch(actions.createCommentData(inputValues));
   };
 
   return (
     <FormStyle>
-      <input
-        type="text"
-        name="profile_url"
-        placeholder="프로필 사진으로 쓰일 이미지 링크를 넣어주세요."
-        required
-        value={inputValue.profile_url}
-        onChange={inputValueHandler}
-      />
-      <input
-        type="text"
-        name="author"
-        placeholder="작성자"
-        value={inputValue.author}
-        onChange={inputValueHandler}
-      />
-      <textarea
-        name="content"
-        placeholder="내용"
-        required
-        value={inputValue.content}
-        onChange={inputValueHandler}
-      />
-      <input
-        type="text"
-        name="createdAt"
-        placeholder={date.slice(0, 10)}
-        required
-        value={inputValue.createdAt}
-        onChange={inputValueHandler}
-      />
+      {INPUTS.map(input =>
+        input.name === 'content' ? (
+          <textarea
+            onChange={handleChange}
+            key={input.name}
+            value={inputValues[input.name]}
+            className="input"
+            {...input}
+          />
+        ) : (
+          <input
+            onChange={handleChange}
+            value={inputValues[input.name]}
+            key={input.name}
+            className="input"
+            {...input}
+          />
+        ),
+      )}
       <button type="submit" onClick={submitHandler}>
         등록
       </button>
