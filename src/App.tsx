@@ -1,14 +1,9 @@
-import React from 'react';
-import CommentList from './components/CommentList';
-import PageList from './components/PageList';
-import Form from './components/Form';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div>
-      <CommentList />
-      <PageList />
-      <Form />
+      <Home />
     </div>
   );
 }

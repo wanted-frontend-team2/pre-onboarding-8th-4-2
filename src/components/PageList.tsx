@@ -1,7 +1,7 @@
 import React from 'react';
 
 function PageList() {
-  const pageArray = [];
+  const pageArray = Array(0);
 
   pageArray.push(
     // 임시로 페이지 하나만 설정했습니다.

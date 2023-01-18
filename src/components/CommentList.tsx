@@ -1,4 +1,14 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  commentAdd,
+  commentUpdate,
+  fetchComments,
+  selectComment,
+} from '../store/commentSlice';
+import { RootState } from '../store/store';
 
 // 임시 데이터 입니다. 코드 작성시 data 부분을 지워주세요
 const data = [
@@ -12,6 +22,18 @@ const data = [
 ];
 
 function CommentList() {
+  const comments = useSelector(selectComment);
+  const dispatch = useDispatch();
+
+  const commentStatus = useSelector((state: RootState) => state.comment.status);
+
+  useEffect(() => {
+    if (commentStatus === 'idle') {
+      dispatch(fetchComments());
+    }
+  }, [commentStatus, dispatch]);
+  console.log(comments);
+
   const list = data.map((comment, key) => (
     <div className="py-2 px-2.5 text-left" key={key}>
       <img
