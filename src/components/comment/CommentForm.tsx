@@ -73,7 +73,7 @@ function CommentForm() {
             key={input.name}
             className="input"
             {...input}
-            required={input.name !== 'profile_url'}
+            required={input.name === 'author'}
           />
         ),
       )}

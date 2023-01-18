@@ -29,14 +29,7 @@ const commentSlice = createSlice({
       const target = state.comments.find(
         comment => comment.id === action.payload,
       );
-      if (target)
-        state.inputValues = {
-          id: target.id,
-          profile_url: target.profile_url,
-          author: target.author,
-          content: target.content,
-          createdAt: target?.createdAt,
-        };
+      if (target) state.inputValues = target;
     },
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
