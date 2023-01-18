@@ -1,8 +1,8 @@
 import React from 'react';
-import CommentPage from './pages/CommentPage';
+import Comments from './components/comment/Comments';
 
 function App() {
-  return <CommentPage />;
+  return <Comments />;
 }
 
 export default App;

@@ -25,7 +25,7 @@ const Page = styled.button<PageProps>`
   margin-right: 3px;
 `;
 
-function PageList() {
+function Pages() {
   const pageArray = [];
 
   pageArray.push(
@@ -38,4 +38,4 @@ function PageList() {
   return <PageListStyle>{pageArray}</PageListStyle>;
 }
 
-export default PageList;
+export default Pages;
