@@ -61,12 +61,13 @@ const commentSlice = createSlice({
       if (state.currentPage === 0) state.currentPage = 1;
     });
 
-    builder.addCase(
-      actions.createCommentData.fulfilled,
-      (state, action: any) => {
-        state.comments = [...state.comments, action.payload];
-      },
-    );
+    builder.addCase(actions.createCommentData.fulfilled, state => {
+      state.inputValues = DEFAULT_INPUT_VALUES;
+      state.currentPage = 0;
+      state.currentSection = 1;
+      state.firstPage = 1;
+      state.lastPage = 5;
+    });
 
     builder.addCase(actions.updateCommentData.fulfilled, (state, action) => {
       const targetIndex = state.comments.findIndex(

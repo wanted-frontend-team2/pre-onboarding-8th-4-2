@@ -127,9 +127,6 @@
       "createdAt": "2022-03-18"
     },
     {
-      "id": 19
-    },
-    {
       "id": 21,
       "profile_url": "https://picsum.photos/id/21/50/50",
       "author": "abc_21",
@@ -198,6 +195,20 @@
       "content": "asdfasdf",
       "profile_url": "https://picsum.photos/id/2/50/50",
       "createdAt": "2023-01-17"
+    },
+    {
+      "id": "265.210",
+      "author": "도기",
+      "content": "2222234234",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2023-01-13"
+    },
+    {
+      "id": "905.400",
+      "author": "도기",
+      "content": "ggggg",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2023-01-24"
     }
   ]
 }
