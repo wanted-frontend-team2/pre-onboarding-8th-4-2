@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
@@ -39,6 +39,10 @@ function CommentUpdate({ setIsEdit, editItem }: UpdatePropsType) {
     createdAt: editItem.createdAt,
     profile_url: editItem.profile_url,
   });
+
+  useEffect(() => {
+    setInputValue(editItem);
+  }, [editItem]);
 
   const inputValueHandler = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
