@@ -1,5 +1,6 @@
-import React from "react";
-import styled from "styled-components";
+import styled from 'styled-components';
+
+import CommentDelete from '../crud/Delete';
 
 const Comment = styled.div`
   padding: 7px 10px;
@@ -26,7 +27,7 @@ const Content = styled.div`
 const Button = styled.div`
   text-align: right;
   margin: 10px 0;
-  & > a {
+  & > button {
     margin-right: 10px;
     padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
@@ -35,21 +36,17 @@ const Button = styled.div`
   }
 `;
 
-// 임시 데이터 입니다. 코드 작성시 data 부분을 지워주세요
-const data = [
-  {
-    id: 1,
-    profile_url: "https://picsum.photos/id/1/50/50",
-    author: "abc_1",
-    content: "UI 테스트는 어떻게 진행하나요",
-    createdAt: "2020-05-01",
-  },
-];
-
-function CommentList() {
-  return data.map((comment, key) => (
-    <Comment key={key}>
-      <img src={comment.profile_url} alt="" />
+function CommentItem({ comment, setIsEdit, setEditItem }: any) {
+  const isEditHandler = () => {
+    setIsEdit(true);
+    setEditItem({
+      id: comment.id,
+      comment,
+    });
+  };
+  return (
+    <Comment key={comment.id}>
+      <img src={comment.profile_url} alt="profile_url" />
 
       {comment.author}
 
@@ -58,13 +55,15 @@ function CommentList() {
       <Content>{comment.content}</Content>
 
       <Button>
-        <a>수정</a>
-        <a>삭제</a>
+        <button type="button" onClick={isEditHandler}>
+          수정
+        </button>
+        <CommentDelete id={comment.id} />
       </Button>
 
       <hr />
     </Comment>
-  ));
+  );
 }
 
-export default CommentList;
+export default CommentItem;
