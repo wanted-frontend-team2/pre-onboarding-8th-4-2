@@ -16,7 +16,9 @@ const apis = {
     instance.post('/', {
       author: comment.author,
       content: comment.content,
-      profile_url: comment.profile_url,
+      profile_url: comment.profile_url
+        ? comment.profile_url
+        : process.env.REACT_APP_DAFAULT_PROFILE_URL,
       createdAt: comment.createdAt,
     });
   },
