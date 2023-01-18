@@ -1,12 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { CommentType, CommentItemType } from '../../types/index';
 
-import {
-  getCommentData,
-  createCommentData,
-  updateCommentData,
-  deleteCommentData,
-} from './commentActions';
+import { actions } from './commentActions';
 
 const commentInitialState: CommentType = { comments: [] };
 
@@ -15,23 +10,35 @@ const commentSlice = createSlice({
   initialState: commentInitialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(getCommentData.fulfilled, (state: any, action) => {
+    builder.addCase(actions.getCommentData.fulfilled, (state: any, action) => {
       state.comments = action.payload;
     });
-    builder.addCase(createCommentData.fulfilled, (state, action: any) => {
-      state.comments = [...state.comments, action.payload];
-    });
-    builder.addCase(updateCommentData.fulfilled, (state: any, action: any) => {
-      state.comments = state.comments.map(
-        (comment: CommentItemType) =>
-          comment.id === action.payload.id && [comment, action.payload],
-      );
-    });
-    builder.addCase(deleteCommentData.fulfilled, (state, action: any) => {
-      state.comments = state.comments.filter(
-        comment => comment.id !== action.payload.id,
-      );
-    });
+    builder.addCase(
+      actions.createCommentData.fulfilled,
+      (state, action: any) => {
+        state.comments = [...state.comments, action.payload];
+      },
+    );
+    builder.addCase(
+      actions.updateCommentData.fulfilled,
+      (state: any, action: any) => {
+        state.comments = state.comments.map(
+          (comment: CommentItemType) =>
+            comment.id === action.payload.id
+              ? { ...comment, ...action.payload.comment }
+              : comment,
+          action.payload,
+        );
+      },
+    );
+    builder.addCase(
+      actions.deleteCommentData.fulfilled,
+      (state, action: any) => {
+        state.comments = state.comments.filter(
+          comment => comment.id !== action.payload.id,
+        );
+      },
+    );
   },
 });
 

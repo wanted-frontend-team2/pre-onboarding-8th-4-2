@@ -1,5 +1,5 @@
 export type CommentItemType = {
-  id: string;
+  id: number;
   profile_url: string;
   author: string;
   content: string;
@@ -13,11 +13,11 @@ export type CommentType = {
 export type CommentItemPropsType = {
   comment: CommentItemType;
   setIsEdit: (boolean: boolean) => void;
-  setEditItem: ({ id: string, comment: CommentItemType }) => void;
+  setEditItem: ({ id: number, comment: CommentItemType }) => void;
 };
 
 export type DeltePropsType = {
-  id: string;
+  id: number;
 };
 
 export type UpdatePropsType = {
@@ -26,19 +26,19 @@ export type UpdatePropsType = {
 };
 
 export type UpdateDataType = {
-  id: string;
+  id: number;
   comment: CommentItemType;
 };
 
 export type CommentsPropsType = {
   onSetIsEdit: (prev: boolean) => void;
   onSetEditItem: {
-    id: string;
+    id: number;
     comment: CommentItemType;
   };
 };
 
 export type EditItemType = {
-  id: string;
+  id: number;
   comment: CommentItemType;
 };

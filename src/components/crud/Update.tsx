@@ -2,8 +2,8 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { updateCommentData } from 'src/store/comment/commentActions';
 import { CommentItemType, UpdatePropsType } from 'src/types';
+import { actions } from '../../store/comment/commentActions';
 import { AppDispatch } from '../../store/index';
 
 const FormStyle = styled.form`
@@ -32,13 +32,7 @@ const FormStyle = styled.form`
 function CommentUpdate({ setIsEdit, editItem }: UpdatePropsType) {
   const dispatch = useDispatch<AppDispatch>();
 
-  const [inputValue, setInputValue] = useState<CommentItemType>({
-    id: editItem.id,
-    author: editItem.author,
-    content: editItem.content,
-    createdAt: editItem.createdAt,
-    profile_url: editItem.profile_url,
-  });
+  const [inputValue, setInputValue] = useState<CommentItemType>(editItem);
 
   useEffect(() => {
     setInputValue(editItem);
@@ -55,7 +49,17 @@ function CommentUpdate({ setIsEdit, editItem }: UpdatePropsType) {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
-    dispatch(updateCommentData({ id: editItem.id, comment: inputValue }));
+
+    dispatch(
+      actions.updateCommentData({ id: editItem.id, comment: inputValue }),
+    );
+    setInputValue({
+      id: 0,
+      author: '',
+      content: '',
+      createdAt: '',
+      profile_url: '',
+    });
     setIsEdit(false);
   };
 

@@ -2,8 +2,8 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { createCommentData } from 'src/store/comment/commentActions';
 import { CommentItemType } from 'src/types';
+import { actions } from '../../store/comment/commentActions';
 import { AppDispatch } from '../../store/index';
 
 const FormStyle = styled.form`
@@ -29,15 +29,18 @@ const FormStyle = styled.form`
   }
 `;
 
-function CommentForm() {
+function Create() {
   const dispatch = useDispatch<AppDispatch>();
   const date = new Date().toISOString();
 
+  const regex = /[^0-9]/g;
+  const numId = Number(date.replace(regex, ''));
+
   const [inputValue, setInputValue] = useState<CommentItemType>({
-    id: date,
+    id: numId,
     author: '',
     content: '',
-    createdAt: date.slice(0, 10),
+    createdAt: '',
     profile_url: '',
   });
 
@@ -52,7 +55,16 @@ function CommentForm() {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
-    dispatch(createCommentData(inputValue));
+
+    dispatch(actions.createCommentData(inputValue));
+
+    setInputValue({
+      id: numId,
+      author: '',
+      content: '',
+      createdAt: '',
+      profile_url: '',
+    });
   };
 
   return (
@@ -60,7 +72,7 @@ function CommentForm() {
       <input
         type="text"
         name="profile_url"
-        placeholder="https://picsum.photos/id/1/50/50"
+        placeholder="프로필 사진으로 쓰일 이미지 링크를 넣어주세요."
         required
         value={inputValue.profile_url}
         onChange={inputValueHandler}
@@ -82,7 +94,7 @@ function CommentForm() {
       <input
         type="text"
         name="createdAt"
-        placeholder="2020-05-30"
+        placeholder={date.slice(0, 10)}
         required
         value={inputValue.createdAt}
         onChange={inputValueHandler}
@@ -94,4 +106,4 @@ function CommentForm() {
   );
 }
 
-export default CommentForm;
+export default Create;
