@@ -14,14 +14,14 @@ const apis = {
     instance.get(`/?_page=${currentPage}&_limit=4&_order=desc&_sort=createdAt`),
   create: (comment: CommentItemType) =>
     instance.post('/', {
-      id: (Math.random() * 1000).toFixed(3),
+      id: Number((Math.random() * 1000).toFixed(0)),
       author: comment.author,
       content: comment.content,
       profile_url: comment.profile_url,
       createdAt: comment.createdAt,
     }),
   update: (comment: CommentItemType) => instance.put(`/${comment.id}`, comment),
-  delete: (id: any) => instance.delete(`/${id}`),
+  delete: (id: number) => instance.delete(`/${id}`),
 };
 
 export default apis;
