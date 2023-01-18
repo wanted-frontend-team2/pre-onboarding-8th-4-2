@@ -1,6 +1,7 @@
+import { useDispatch } from 'react-redux';
+import { editComment } from 'src/store/comment/commentSlice';
 import styled from 'styled-components';
-
-import CommentDelete from '../crud/Delete';
+import CommentDelete from './DeleteButton';
 
 const Comment = styled.div`
   padding: 7px 10px;
@@ -36,26 +37,16 @@ const Button = styled.div`
   }
 `;
 
-function CommentItem({ comment, setIsEdit, setEditItem }: any) {
-  const isEditHandler = () => {
-    setIsEdit(true);
-    setEditItem({
-      id: comment.id,
-      comment,
-    });
-  };
+function CommentItem({ comment }: any) {
+  const dispatch = useDispatch();
   return (
     <Comment key={comment.id}>
       <img src={comment.profile_url} alt="profile_url" />
-
       {comment.author}
-
       <CreatedAt>{comment.createdAt}</CreatedAt>
-
       <Content>{comment.content}</Content>
-
       <Button>
-        <button type="button" onClick={isEditHandler}>
+        <button type="button" onClick={() => dispatch(editComment(comment.id))}>
           수정
         </button>
         <CommentDelete id={comment.id} />

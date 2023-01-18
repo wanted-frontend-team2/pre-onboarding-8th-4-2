@@ -6,9 +6,17 @@ export type CommentItemType = {
   createdAt: string;
 };
 
-export type CommentType = {
+export interface CommentState {
   comments: CommentItemType[];
-};
+  currentPage: number;
+  inputValues: InputValues;
+  totalPage: number;
+  currentSection: number;
+  totalSection: number;
+  pageCount: number;
+  firstPage: number;
+  lastPage: number;
+}
 
 export type CommentItemPropsType = {
   comment: CommentItemType;
@@ -41,4 +49,13 @@ export type CommentsPropsType = {
 export type EditItemType = {
   id: number;
   comment: CommentItemType;
+};
+
+export type InputValue = {
+  [key: string]: string | number;
+  id: number;
+  author: string;
+  profile_url: string;
+  content: string;
+  createdAt: string;
 };
