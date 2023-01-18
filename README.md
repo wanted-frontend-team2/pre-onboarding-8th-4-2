@@ -1,56 +1,46 @@
-## 목표
+# Getting Started with Create React App
 
-- API 서버와 통신해서 작동하는 댓글 프로젝트를 Redux를 통해 구현
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
-## 참고자료
+## Available Scripts
 
-- API 참고사항
-  - 프로젝트내에서 `npm install` 후, `npm run api` 실행 시 `[localhost:4000](http://localhost:4000)` 에 API 서버 실행
-  - [http://localhost:4000/comments](http://localhost:4000/comments)에 `GET` 요청시 `data.json` 파일에 기록된 데이터 확인 가능
-  - API 를 통해 입력하거나 수정하면 data.json 파일내용도 변경됨
-  - 총 댓글수는 `/comments` API로 호출 후 응답값을 통해서 직접 계산.
-  - 서버는 json-server 라이브러리 이용해서 구축됨
-  
-    - API 사용법에 대한 추가정보는 공식문서 참고: [https://www.npmjs.com/package/json-server](https://www.npmjs.com/package/json-server)
-    
-      | method | url |
-      | ------ | --------------------- |
-      | GET | /comments |
-      | GET | /comments/{commentId} |
-      | POST | /comments |
-      | PUT | /comments/{commentId} |
-      | DELETE | /comments/{commentId} |
-      
-  - API 호출 예시:
-    - 한페이지에 4개의 게시물이 보이고, 최근 게시물부터 정렬해서 3페이지를 보고 싶은 경우
-    - GET `/comments?_page=3&_limit=4&_order=desc&_sort=id`
+In the project directory, you can run:
 
-## 과제 범위
+### `npm start`
 
-1. 예시 이미지와 같이 댓글 불러오기, 작성, 수정, 삭제가 동작하도록 기능 구현
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-     ![https://user-images.githubusercontent.com/12206933/83601436-8e15b780-a5ab-11ea-91ad-04a302579c90.gif](https://user-images.githubusercontent.com/12206933/83601436-8e15b780-a5ab-11ea-91ad-04a302579c90.gif)
-     
-2. 페이지네이션
-3. 댓글 작성, 수정, 삭제 후 동작
-   - 댓글 작성하고 난 뒤: 다른 페이지에 위치하고 있었더라도 1페이지로 이동, 입력 폼 초기화
-   - 댓글 수정하고 난 뒤: 현재 보고있는 페이지 유지, 입력 폼 초기화
-   - 삭제하고 난 뒤: 1페이지로 이동
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## 요구 사항
+### `npm test`
 
-- Redux 환경설정은 자유롭게 진행
-  - Redux-saga or Redux-thunk 자유롭게 선택 가능
-  - 미들웨어 사용안하는 것도 가능
-- Redux logger, Redux-Devtools 설정 필수
-- Redux를 이용한 비동기 처리 필수
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## 개발 조건 및 환경
+### `npm run build`
 
-- 언어 : JavaScript / TypeScript
-- 필수 기술: React, Redux, Redux-Logger, Redux-Devtools
-- 선택 기술:
-  - Redux Middleware
-  - 스타일 관련 라이브러리(styled-components, emotion, ui kit 등)
-  - HTTP Client(axios 등)
-- 위에 기재된 라이브러리 외 사용 불가
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
