@@ -29,9 +29,12 @@ export const createCommentData = createAsyncThunk(
 
 export const updateCommentData = createAsyncThunk(
   'updateCommentData',
+  // FIXME: eslint error를 해결해야함
+  // eslint-disable-next-line consistent-return
   async ({ id, comment }: UpdateDataType) => {
     try {
       await apis.update(id, comment);
+      return { id, comment };
     } catch (err) {
       if (err instanceof Error) {
         alert(`통신에 실패했습니다. 다시 시도해주세요: ${err.message}`);

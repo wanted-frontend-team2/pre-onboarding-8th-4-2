@@ -24,7 +24,10 @@ const commentSlice = createSlice({
     builder.addCase(updateCommentData.fulfilled, (state: any, action: any) => {
       state.comments = state.comments.map(
         (comment: CommentItemType) =>
-          comment.id === action.payload.id && [comment, action.payload],
+          comment.id === action.payload.id
+            ? { ...comment, ...action.payload.comment }
+            : comment,
+        action.payload,
       );
     });
     builder.addCase(deleteCommentData.fulfilled, (state, action: any) => {
