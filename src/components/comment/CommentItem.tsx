@@ -47,13 +47,9 @@ function CommentItem({ comment, setIsEdit, setEditItem }: any) {
   return (
     <Comment key={comment.id}>
       <img src={comment.profile_url} alt="profile_url" />
-
       {comment.author}
-
       <CreatedAt>{comment.createdAt}</CreatedAt>
-
       <Content>{comment.content}</Content>
-
       <Button>
         <button type="button" onClick={isEditHandler}>
           수정

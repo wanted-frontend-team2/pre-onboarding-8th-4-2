@@ -32,8 +32,8 @@ export const actions = {
     'updateCommentData',
     async ({ id, comment }: UpdateDataType) => {
       try {
-        await apis.update(id, comment);
-        return { id, comment };
+        const response = await apis.update(id, comment);
+        return response.data;
       } catch (err) {
         if (err instanceof Error) {
           alert(`통신에 실패했습니다. 다시 시도해주세요: ${err.message}`);
@@ -47,7 +47,7 @@ export const actions = {
     async (id: number) => {
       try {
         await apis.delete(id);
-        return { id };
+        return id;
       } catch (err) {
         if (err instanceof Error) {
           alert(`통신에 실패했습니다. 다시 시도해주세요: ${err.message}`);
@@ -104,7 +104,7 @@ export const deleteCommentData = createAsyncThunk(
   async (id: number) => {
     try {
       await apis.delete(id);
-      return { id };
+      return id;
     } catch (err) {
       if (err instanceof Error) {
         alert(`통신에 실패했습니다. 다시 시도해주세요: ${err.message}`);

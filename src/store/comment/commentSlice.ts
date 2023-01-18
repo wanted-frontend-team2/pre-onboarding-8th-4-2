@@ -1,9 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { CommentType, CommentItemType } from '../../types/index';
-
+import { DEFAULT_INPUT_VALUES } from 'src/components/constants';
+import { CommentState } from '../../types/index';
 import { actions } from './commentActions';
 
-const commentInitialState: CommentType = { comments: [] };
+const commentInitialState: CommentState = {
+  comments: [],
+  currentPage: 1,
+  inputValues: DEFAULT_INPUT_VALUES,
+  totalPage: 1,
+  currentSection: 1,
+  totalSection: 1,
+  pageCount: 5,
+  firstPage: 1,
+  lastPage: 5,
+};
 
 const commentSlice = createSlice({
   name: 'comment',
@@ -13,32 +23,28 @@ const commentSlice = createSlice({
     builder.addCase(actions.getCommentData.fulfilled, (state: any, action) => {
       state.comments = action.payload;
     });
+
     builder.addCase(
       actions.createCommentData.fulfilled,
       (state, action: any) => {
         state.comments = [...state.comments, action.payload];
       },
     );
-    builder.addCase(
-      actions.updateCommentData.fulfilled,
-      (state: any, action: any) => {
-        state.comments = state.comments.map(
-          (comment: CommentItemType) =>
-            comment.id === action.payload.id
-              ? { ...comment, ...action.payload.comment }
-              : comment,
-          action.payload,
-        );
-      },
-    );
-    builder.addCase(
-      actions.deleteCommentData.fulfilled,
-      (state, action: any) => {
-        state.comments = state.comments.filter(
-          comment => comment.id !== action.payload.id,
-        );
-      },
-    );
+
+    builder.addCase(actions.updateCommentData.fulfilled, (state, action) => {
+      const targetIndex = state.comments.findIndex(
+        comment => comment.id === action.payload.id,
+      );
+      state.comments[targetIndex] = action.payload;
+    });
+
+    builder.addCase(actions.deleteCommentData.fulfilled, (state, action) => {
+      state.comments = state.comments.filter(
+        comment => comment.id !== action.payload,
+      );
+      state.currentPage = 0;
+      state.inputValues = DEFAULT_INPUT_VALUES;
+    });
   },
 });
 

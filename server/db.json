@@ -9,10 +9,10 @@
     },
     {
       "id": 2,
-      "profile_url": "https://picsum.photos/id/2/50/50",
-      "author": "abc_2",
       "content": "막히면 대답은 빨리 해주나요",
-      "createdAt": "2022-03-02"
+      "author": "abc_2",
+      "createdAt": "2022-03-02",
+      "profile_url": "https://picsum.photos/id/2/50/50"
     },
     {
       "id": 3,
@@ -51,24 +51,10 @@
     },
     {
       "id": 8,
-      "profile_url": "https://picsum.photos/id/8/50/50",
+      "content": "Typescript 배워 보려고 합니다. 어떻게 배우는게 빠를까요 아니요",
       "author": "abc_8",
-      "content": "Typescript 배워 보려고 합니다. 어떻게 배우는게 빠를까요",
-      "createdAt": "2022-03-08"
-    },
-    {
-      "id": 9,
-      "profile_url": "https://picsum.photos/id/9/50/50",
-      "author": "abc_9",
-      "content": "컴포넌트 테스트는 어떻게 하나요.",
-      "createdAt": "2022-03-09"
-    },
-    {
-      "id": 10,
-      "profile_url": "https://picsum.photos/id/10/50/50",
-      "author": "abc_10",
-      "content": "storybook은 무엇인가요.",
-      "createdAt": "2022-03-10"
+      "createdAt": "2022-03-08",
+      "profile_url": "https://picsum.photos/id/8/50/50"
     },
     {
       "id": 11,
@@ -93,10 +79,10 @@
     },
     {
       "id": 14,
-      "profile_url": "https://picsum.photos/id/14/50/50",
+      "content": "Next.js 가이드 주세요.14 15",
       "author": "abc_14",
-      "content": "Next.js 가이드 주세요.14",
-      "createdAt": "2022-03-14"
+      "createdAt": "2022-03-14",
+      "profile_url": "https://picsum.photos/id/14/50/50"
     },
     {
       "id": 15,
@@ -127,25 +113,11 @@
       "createdAt": "2022-03-18"
     },
     {
-      "id": 19,
-      "profile_url": "https://picsum.photos/id/19/50/50",
-      "author": "abc_19",
-      "content": "막히면 대답은 빨리 해주나요 22222",
-      "createdAt": "2022-03-19"
-    },
-    {
       "id": 20,
       "profile_url": "https://picsum.photos/id/20/50/50",
       "author": "abc_20",
       "content": "Form 처리는 어떻게 하면 깔끔할까요",
       "createdAt": "2022-03-20"
-    },
-    {
-      "id": 21,
-      "profile_url": "https://picsum.photos/id/21/50/50",
-      "author": "abc_21",
-      "content": "typescript도 배워 보려고 합니다. 어떻게 배우는게 빠를까요",
-      "createdAt": "2022-03-21"
     },
     {
       "id": 22,
@@ -155,39 +127,53 @@
       "createdAt": "2022-03-22"
     },
     {
-      "id": "2023-01-18T09:00:12.101Z",
+      "id": "897.251",
+      "author": "뉴진스",
+      "content": "2342",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-01-17"
+    },
+    {
+      "id": "946.334",
+      "author": "뉴진스",
+      "content": "124124",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-01-17"
+    },
+    {
+      "id": "818.561",
+      "content": "23423455555",
       "author": "도기",
-      "content": "ssss",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/4/50/50"
+      "createdAt": "2023-03-04",
+      "profile_url": "https://picsum.photos/id/1/50/50"
     },
     {
-      "id": "2023-01-18T09:02:41.281Z",
-      "author": "asdfasdf",
-      "content": "ㅁㄴㅇㅁㄴㅁㅇㄹㅁㄴㅇㄹ",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/2/50/50"
-    },
-    {
-      "id": "2023-01-18T11:02:55.006Z",
-      "author": "진지",
-      "content": "aaaaaaa",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/2/50/50"
-    },
-    {
-      "id": "2023-01-18T11:03:14.937Z",
+      "id": "666.004",
       "author": "asdf",
-      "content": "ssdfsdfsdfasdfasdfasdf",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/4/50/50"
+      "content": "asdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
     },
     {
-      "id": "2023-01-18T11:14:05.783Z",
-      "author": "도기",
-      "content": "2222222222",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/4/50/50"
+      "id": "573.727",
+      "author": "진현덕",
+      "content": "ggggggg",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-11-22"
+    },
+    {
+      "id": "364.020",
+      "author": "tobi",
+      "content": "tttttt",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2023-01-13"
+    },
+    {
+      "id": "822.314",
+      "author": "asdfasdf",
+      "content": "asdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2023-01-20"
     }
   ]
 }
