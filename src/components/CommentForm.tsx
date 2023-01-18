@@ -24,7 +24,7 @@ const FormStyle = styled.div`
   }
 `;
 
-function Form() {
+function CommentForm() {
   return (
     <FormStyle>
       <form>
@@ -47,4 +47,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default CommentForm;
