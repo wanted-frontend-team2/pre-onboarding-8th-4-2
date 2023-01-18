@@ -44,7 +44,8 @@ function Create() {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
-    dispatch(actions.createCommentData(inputValues));
+    if (inputValues.id < 0) dispatch(actions.createCommentData(inputValues));
+    else dispatch(actions.updateCommentData(inputValues));
   };
 
   return (

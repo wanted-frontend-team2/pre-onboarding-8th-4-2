@@ -33,7 +33,7 @@ function Comments() {
     <>
       {comments.map((comment: CommentItemType) => (
         <CommentItem
-          key={comment.id}
+          key={Math.random() * 100}
           comment={comment}
           setIsEdit={setIsEdit}
           setEditItem={setEditItem}

@@ -127,18 +127,7 @@
       "createdAt": "2022-03-18"
     },
     {
-      "id": 19,
-      "profile_url": "https://picsum.photos/id/19/50/50",
-      "author": "abc_19",
-      "content": "막히면 대답은 빨리 해주나요 22222",
-      "createdAt": "2022-03-19"
-    },
-    {
-      "id": 20,
-      "profile_url": "https://picsum.photos/id/20/50/50",
-      "author": "abc_20",
-      "content": "Form 처리는 어떻게 하면 깔끔할까요",
-      "createdAt": "2022-03-20"
+      "id": 19
     },
     {
       "id": 21,
@@ -155,39 +144,60 @@
       "createdAt": "2022-03-22"
     },
     {
-      "id": "2023-01-18T09:00:12.101Z",
-      "author": "도기",
-      "content": "ssss",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/4/50/50"
-    },
-    {
-      "id": "2023-01-18T09:02:41.281Z",
-      "author": "asdfasdf",
-      "content": "ㅁㄴㅇㅁㄴㅁㅇㄹㅁㄴㅇㄹ",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/2/50/50"
-    },
-    {
-      "id": "2023-01-18T11:02:55.006Z",
+      "id": "861.025",
       "author": "진지",
-      "content": "aaaaaaa",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/2/50/50"
+      "content": "asdfasdfa",
+      "profile_url": "https://picsum.photos/id/2/50/50",
+      "createdAt": "2022-03-02"
     },
     {
-      "id": "2023-01-18T11:03:14.937Z",
-      "author": "asdf",
-      "content": "ssdfsdfsdfasdfasdfasdf",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/4/50/50"
+      "id": "212.205",
+      "author": "진지",
+      "content": "asdfasdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
     },
     {
-      "id": "2023-01-18T11:14:05.783Z",
+      "id": "468.727",
+      "author": "asdfasdf",
+      "content": "asdfasdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
+    },
+    {
+      "id": "985.014",
       "author": "도기",
-      "content": "2222222222",
-      "createdAt": "2023-01-18",
-      "profile_url": "https://picsum.photos/id/4/50/50"
+      "content": "asdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
+    },
+    {
+      "id": "687.438",
+      "author": "도기",
+      "content": "22222222",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
+    },
+    {
+      "id": "588.580",
+      "author": "abc_20",
+      "content": "Form 처리는 어떻게 하면 깔끔할까요33333",
+      "profile_url": "https://picsum.photos/id/20/50/50",
+      "createdAt": "2022-03-20"
+    },
+    {
+      "id": "213.365",
+      "author": "도기",
+      "content": "asdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-01-17"
+    },
+    {
+      "id": "646.675",
+      "author": "도기",
+      "content": "asdfasdf",
+      "profile_url": "https://picsum.photos/id/2/50/50",
+      "createdAt": "2023-01-17"
     }
   ]
 }

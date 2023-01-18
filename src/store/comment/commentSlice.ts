@@ -22,10 +22,38 @@ const commentSlice = createSlice({
     setInputValues(state, action) {
       state.inputValues[action.payload.name] = action.payload.value;
     },
+    editComment(state, action) {
+      state.inputValues = action.payload;
+    },
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
+    },
+    setPageSection(state, action) {
+      if (action.payload === 'next') {
+        state.currentSection += 1;
+        state.currentPage = (state.currentSection - 1) * state.pageCount + 1;
+      }
+      if (action.payload === 'prev') {
+        state.currentSection -= 1;
+        state.currentPage =
+          state.currentSection * state.pageCount - (state.pageCount - 1);
+      }
+      state.lastPage =
+        state.currentSection * state.pageCount > state.totalPage
+          ? state.totalPage
+          : state.currentSection * state.pageCount;
+
+      state.firstPage =
+        state.currentSection === 1
+          ? 1
+          : state.currentSection * state.pageCount - state.pageCount + 1;
+    },
   },
   extraReducers: builder => {
     builder.addCase(actions.getCommentData.fulfilled, (state, action) => {
-      state.totalPage = action.payload.length;
+      const totalPageNumber = Math.ceil(action.payload.length / 4);
+      state.totalPage = totalPageNumber;
+      state.totalSection = Math.ceil(totalPageNumber / 5);
     });
 
     builder.addCase(actions.fetchCommentsByPage.fulfilled, (state, action) => {
@@ -59,6 +87,7 @@ const commentSlice = createSlice({
 
 export const getComments = (state: any) => state.comment.comments;
 
-export const { setInputValues } = commentSlice.actions;
+export const { setInputValues, setCurrentPage, setPageSection, editComment } =
+  commentSlice.actions;
 
 export default commentSlice.reducer;
