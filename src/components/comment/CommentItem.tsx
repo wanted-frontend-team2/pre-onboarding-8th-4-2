@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { editComment } from 'src/store/comment/commentSlice';
 import styled from 'styled-components';
-import CommentDelete from './DeleteButton';
+import CommentDelete from '../DeleteButton';
 
 const Comment = styled.div`
   padding: 7px 10px;

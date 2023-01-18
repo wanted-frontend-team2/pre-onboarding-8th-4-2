@@ -7,7 +7,7 @@ import { getComments } from '../../store/comment/commentSlice';
 import { CommentItemType } from '../../types/index';
 
 import CommentItem from './CommentItem';
-import PageList from './PageList';
+import PageList from '../PageList';
 import CommentForm from './CommentForm';
 
 function Comments() {
