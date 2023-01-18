@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import apis from 'src/service/request';
-import { CommentItemType, UpdateDataType } from 'src/types';
+import { CommentItemType, InputValue } from 'src/types';
 
 export const actions = {
   getCommentData: createAsyncThunk('getCommentData', async () => {
@@ -41,9 +41,9 @@ export const actions = {
   ),
   updateCommentData: createAsyncThunk(
     'updateCommentData',
-    async ({ id, comment }: UpdateDataType) => {
+    async (inputValues: InputValue) => {
       try {
-        const response = await apis.update(id, comment);
+        const response = await apis.update(inputValues);
         return response.data;
       } catch (err) {
         if (err instanceof Error) {

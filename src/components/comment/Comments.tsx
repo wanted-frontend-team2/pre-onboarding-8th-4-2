@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AppDispatch, RootState } from '../../store/index';
@@ -8,8 +8,7 @@ import { CommentItemType } from '../../types/index';
 
 import CommentItem from './CommentItem';
 import PageList from './PageList';
-import Create from '../crud/Create';
-import Update from '../crud/Update';
+import CommentForm from './CommentForm';
 
 function Comments() {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,12 +16,6 @@ function Comments() {
   const currentPage = useSelector(
     (state: RootState) => state.comment.currentPage,
   );
-
-  const [isEdit, setIsEdit] = useState<boolean>(false);
-  const [editItem, setEditItem] = useState<any>({
-    id: 0,
-    comment: {},
-  });
 
   useEffect(() => {
     dispatch(actions.getCommentData());
@@ -32,16 +25,10 @@ function Comments() {
   return (
     <>
       {comments.map((comment: CommentItemType) => (
-        <CommentItem
-          key={Math.random() * 100}
-          comment={comment}
-          setIsEdit={setIsEdit}
-          setEditItem={setEditItem}
-        />
+        <CommentItem key={Math.random() * 100} comment={comment} />
       ))}
       <PageList />
-      {isEdit && <Update editItem={editItem.comment} setIsEdit={setIsEdit} />}
-      {!isEdit && <Create />}
+      <CommentForm />
     </>
   );
 }

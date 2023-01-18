@@ -30,7 +30,7 @@ const FormStyle = styled.form`
   }
 `;
 
-function Create() {
+function CommentForm() {
   const dispatch = useDispatch<AppDispatch>();
   const inputValues = useSelector(
     (state: RootState) => state.comment.inputValues,
@@ -44,7 +44,9 @@ function Create() {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
-    if (inputValues.id < 0) dispatch(actions.createCommentData(inputValues));
+
+    console.log(inputValues);
+    if (inputValues.id === -1) dispatch(actions.createCommentData(inputValues));
     else dispatch(actions.updateCommentData(inputValues));
   };
 
@@ -76,4 +78,4 @@ function Create() {
   );
 }
 
-export default Create;
+export default CommentForm;

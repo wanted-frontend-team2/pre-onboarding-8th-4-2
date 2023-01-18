@@ -20,7 +20,7 @@ const apis = {
       profile_url: comment.profile_url,
       createdAt: comment.createdAt,
     }),
-  update: (id: any, comment: any) => instance.put(`/${id}`, comment),
+  update: (comment: CommentItemType) => instance.put(`/${comment.id}`, comment),
   delete: (id: any) => instance.delete(`/${id}`),
 };
 

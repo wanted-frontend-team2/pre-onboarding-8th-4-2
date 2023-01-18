@@ -1,8 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { editComment } from 'src/store/comment/commentSlice';
 import styled from 'styled-components';
-
-import CommentDelete from '../crud/Delete';
+import CommentDelete from './DeleteButton';
 
 const Comment = styled.div`
   padding: 7px 10px;
@@ -47,7 +46,7 @@ function CommentItem({ comment }: any) {
       <CreatedAt>{comment.createdAt}</CreatedAt>
       <Content>{comment.content}</Content>
       <Button>
-        <button type="button" onClick={() => dispatch(editComment(comment))}>
+        <button type="button" onClick={() => dispatch(editComment(comment.id))}>
           수정
         </button>
         <CommentDelete id={comment.id} />

@@ -116,29 +116,8 @@
       "id": 17,
       "profile_url": "https://picsum.photos/id/18/50/50",
       "author": "abc_17",
-      "content": "UI 테스트는 어떻게 진행하나요",
+      "content": "UI 테스트는 어떻게 진행하나요222",
       "createdAt": "2022-03-17"
-    },
-    {
-      "id": 18,
-      "profile_url": "https://picsum.photos/id/18/50/50",
-      "author": "abc_18",
-      "content": "local storage는 언제 사용하는게 좋나요.",
-      "createdAt": "2022-03-18"
-    },
-    {
-      "id": 21,
-      "profile_url": "https://picsum.photos/id/21/50/50",
-      "author": "abc_21",
-      "content": "typescript도 배워 보려고 합니다. 어떻게 배우는게 빠를까요",
-      "createdAt": "2022-03-21"
-    },
-    {
-      "id": 22,
-      "profile_url": "https://picsum.photos/id/22/50/50",
-      "author": "abc_22",
-      "content": "주변에 React 개발자 있나요",
-      "createdAt": "2022-03-22"
     },
     {
       "id": "861.025",
@@ -176,13 +155,6 @@
       "createdAt": "2022-03-02"
     },
     {
-      "id": "588.580",
-      "author": "abc_20",
-      "content": "Form 처리는 어떻게 하면 깔끔할까요33333",
-      "profile_url": "https://picsum.photos/id/20/50/50",
-      "createdAt": "2022-03-20"
-    },
-    {
       "id": "213.365",
       "author": "도기",
       "content": "asdfasdf",
@@ -190,25 +162,11 @@
       "createdAt": "2022-01-17"
     },
     {
-      "id": "646.675",
-      "author": "도기",
-      "content": "asdfasdf",
-      "profile_url": "https://picsum.photos/id/2/50/50",
-      "createdAt": "2023-01-17"
-    },
-    {
-      "id": "265.210",
-      "author": "도기",
-      "content": "2222234234",
-      "profile_url": "https://picsum.photos/id/1/50/50",
-      "createdAt": "2023-01-13"
-    },
-    {
-      "id": "905.400",
-      "author": "도기",
-      "content": "ggggg",
-      "profile_url": "https://picsum.photos/id/1/50/50",
-      "createdAt": "2023-01-24"
+      "id": "696.005",
+      "author": "진지",
+      "content": "3333",
+      "profile_url": "https://picsum.photos/id/5/50/50",
+      "createdAt": "2023-01-27"
     }
   ]
 }
