@@ -32,7 +32,7 @@
       "id": 5,
       "profile_url": "https://picsum.photos/id/5/50/50",
       "author": "abc_5",
-      "content": "Typescript는 어떤점에서 좋나요",
+      "content": "Typescript는 어떤점에서 좋나요?",
       "createdAt": "2022-03-05"
     },
     {
@@ -71,38 +71,17 @@
       "createdAt": "2022-03-10"
     },
     {
-      "id": 11,
-      "profile_url": "https://picsum.photos/id/11/50/50",
-      "author": "abc_11",
-      "content": "주변에 React 개발자 있나요",
-      "createdAt": "2022-03-11"
-    },
-    {
       "id": 12,
       "profile_url": "https://picsum.photos/id/12/50/50",
       "author": "abc_12",
-      "content": "주변에 React 개발자 있나요",
+      "content": "주변에 React 개발자 있나요?",
       "createdAt": "2022-03-12"
-    },
-    {
-      "id": 13,
-      "profile_url": "https://picsum.photos/id/13/50/50",
-      "author": "abc_13",
-      "content": "주변에 React 개발자 있나요",
-      "createdAt": "2022-03-13"
-    },
-    {
-      "id": 14,
-      "profile_url": "https://picsum.photos/id/14/50/50",
-      "author": "abc_14",
-      "content": "Next.js 가이드 주세요.14",
-      "createdAt": "2022-03-14"
     },
     {
       "id": 15,
       "profile_url": "https://picsum.photos/id/15/50/50",
       "author": "abc_15",
-      "content": "vue vs react 뭐가 좋나요.",
+      "content": "vue vs react 뭐가 좋나요?",
       "createdAt": "2022-03-15"
     },
     {
@@ -116,57 +95,8 @@
       "id": 17,
       "profile_url": "https://picsum.photos/id/18/50/50",
       "author": "abc_17",
-      "content": "UI 테스트는 어떻게 진행하나요222",
+      "content": "UI 테스트는 어떻게 진행하나요",
       "createdAt": "2022-03-17"
-    },
-    {
-      "id": "861.025",
-      "author": "진지",
-      "content": "asdfasdfa",
-      "profile_url": "https://picsum.photos/id/2/50/50",
-      "createdAt": "2022-03-02"
-    },
-    {
-      "id": "212.205",
-      "author": "진지",
-      "content": "asdfasdfasdf",
-      "profile_url": "https://picsum.photos/id/1/50/50",
-      "createdAt": "2022-03-02"
-    },
-    {
-      "id": "468.727",
-      "author": "asdfasdf",
-      "content": "asdfasdfasdf",
-      "profile_url": "https://picsum.photos/id/1/50/50",
-      "createdAt": "2022-03-02"
-    },
-    {
-      "id": "985.014",
-      "author": "도기",
-      "content": "asdfasdf",
-      "profile_url": "https://picsum.photos/id/1/50/50",
-      "createdAt": "2022-03-02"
-    },
-    {
-      "id": "687.438",
-      "author": "도기",
-      "content": "22222222",
-      "profile_url": "https://picsum.photos/id/1/50/50",
-      "createdAt": "2022-03-02"
-    },
-    {
-      "id": "213.365",
-      "author": "도기",
-      "content": "asdfasdf",
-      "profile_url": "https://picsum.photos/id/1/50/50",
-      "createdAt": "2022-01-17"
-    },
-    {
-      "id": 404.1005438654699,
-      "author": "진지",
-      "content": "asdfasdfasdf",
-      "profile_url": "https://picsum.photos/id/1/50/50",
-      "createdAt": "2022-03-02"
     }
   ]
 }
