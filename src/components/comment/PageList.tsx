@@ -1,4 +1,6 @@
-import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'src/store';
+import { setCurrentPage, setPageSection } from 'src/store/comment/commentSlice';
 import styled from 'styled-components';
 
 const PageListStyle = styled.div`
@@ -26,16 +28,45 @@ const Page = styled.button<PageProps>`
 `;
 
 function Pages() {
-  const pageArray = [];
-
-  pageArray.push(
-    // 임시로 페이지 하나만 설정했습니다.
-    <Page key="1" active>
-      1
-    </Page>,
+  const dispatch = useDispatch();
+  const totalPage = useSelector((state: RootState) => state.comment.totalPage);
+  const firstPage = useSelector((state: RootState) => state.comment.firstPage);
+  const lastPage = useSelector((state: RootState) => state.comment.lastPage);
+  const currentSection = useSelector(
+    (state: RootState) => state.comment.currentSection,
+  );
+  const totalSection = useSelector(
+    (state: RootState) => state.comment.totalSection,
+  );
+  const currentPage = useSelector(
+    (state: RootState) => state.comment.currentPage,
   );
 
-  return <PageListStyle>{pageArray}</PageListStyle>;
+  const pageButtons = [...Array(totalPage + 1)].map((_, i) => i);
+
+  return (
+    <PageListStyle>
+      <button
+        type="button"
+        disabled={currentSection === 1}
+        onClick={() => dispatch(setPageSection('prev'))}
+      >{`<`}</button>
+      {pageButtons.slice(firstPage, lastPage + 1).map(pageNumber => (
+        <Page
+          active={currentPage === pageNumber}
+          onClick={() => dispatch(setCurrentPage(pageNumber))}
+          key={Math.random() * 1000}
+        >
+          {pageNumber}
+        </Page>
+      ))}
+      <button
+        type="button"
+        disabled={currentSection >= totalSection}
+        onClick={() => dispatch(setPageSection('next'))}
+      >{`>`}</button>
+    </PageListStyle>
+  );
 }
 
 export default Pages;

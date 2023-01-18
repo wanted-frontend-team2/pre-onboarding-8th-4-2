@@ -4,7 +4,7 @@
       "id": 1,
       "profile_url": "https://picsum.photos/id/1/50/50",
       "author": "abc_1",
-      "content": "UI 테스트는 어떻게 진행하나요",
+      "content": "UI 테스트는 어떻게 ",
       "createdAt": "2022-03-01"
     },
     {
@@ -116,43 +116,57 @@
       "id": 17,
       "profile_url": "https://picsum.photos/id/18/50/50",
       "author": "abc_17",
-      "content": "UI 테스트는 어떻게 진행하나요",
+      "content": "UI 테스트는 어떻게 진행하나요222",
       "createdAt": "2022-03-17"
     },
     {
-      "id": 18,
-      "profile_url": "https://picsum.photos/id/18/50/50",
-      "author": "abc_18",
-      "content": "local storage는 언제 사용하는게 좋나요.",
-      "createdAt": "2022-03-18"
+      "id": "861.025",
+      "author": "진지",
+      "content": "asdfasdfa",
+      "profile_url": "https://picsum.photos/id/2/50/50",
+      "createdAt": "2022-03-02"
     },
     {
-      "id": 19,
-      "profile_url": "https://picsum.photos/id/19/50/50",
-      "author": "abc_19",
-      "content": "막히면 대답은 빨리 해주나요",
-      "createdAt": "2022-03-19"
+      "id": "212.205",
+      "author": "진지",
+      "content": "asdfasdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
     },
     {
-      "id": 20,
-      "profile_url": "https://picsum.photos/id/20/50/50",
-      "author": "abc_20",
-      "content": "Form 처리는 어떻게 하면 깔끔할까요",
-      "createdAt": "2022-03-20"
+      "id": "468.727",
+      "author": "asdfasdf",
+      "content": "asdfasdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
     },
     {
-      "id": 21,
-      "profile_url": "https://picsum.photos/id/21/50/50",
-      "author": "abc_21",
-      "content": "typescript도 배워 보려고 합니다. 어떻게 배우는게 빠를까요",
-      "createdAt": "2022-03-21"
+      "id": "985.014",
+      "author": "도기",
+      "content": "asdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
     },
     {
-      "id": 22,
-      "profile_url": "https://picsum.photos/id/22/50/50",
-      "author": "abc_22",
-      "content": "주변에 React 개발자 있나요",
-      "createdAt": "2022-03-22"
+      "id": "687.438",
+      "author": "도기",
+      "content": "22222222",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
+    },
+    {
+      "id": "213.365",
+      "author": "도기",
+      "content": "asdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-01-17"
+    },
+    {
+      "id": 404.1005438654699,
+      "author": "진지",
+      "content": "asdfasdfasdf",
+      "profile_url": "https://picsum.photos/id/1/50/50",
+      "createdAt": "2022-03-02"
     }
   ]
 }
