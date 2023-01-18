@@ -50,7 +50,6 @@ export const newCommentData = createAsyncThunk(
   async (item: CommentItemType) => {
     try {
       await instance.post("/", item);
-      window.location.replace("/");
     } catch (err) {
       console.log("err", err);
     }
@@ -62,7 +61,6 @@ export const editCommentData = createAsyncThunk(
   async (item: CommentItemType) => {
     try {
       await instance.put(`/${item.id}`, item);
-      window.location.replace("/");
     } catch (err) {
       console.log("err", err);
     }
@@ -74,7 +72,6 @@ export const deleteCommentData = createAsyncThunk(
   async (id: string) => {
     try {
       await instance.delete(`/${id}`);
-      window.location.replace("/");
     } catch (err) {
       console.log("err", err);
     }

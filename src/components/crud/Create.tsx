@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useAppDispatch } from "../../store/hooks";
 
-import { editCommentData } from "../../store/comment/comment-actions";
+import { newCommentData } from "../../store/comment/comment-actions";
 
 const Create = () => {
   const dispatch = useAppDispatch();
@@ -26,7 +26,7 @@ const Create = () => {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
-    dispatch(editCommentData(inputValue));
+    dispatch(newCommentData(inputValue));
   };
 
   return (
