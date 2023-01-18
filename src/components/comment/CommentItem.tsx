@@ -1,4 +1,6 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import disableButton from 'src/service/disableButton';
+import { RootState } from 'src/store';
 import { editComment } from 'src/store/comment/commentSlice';
 import styled from 'styled-components';
 import CommentDelete from '../DeleteButton';
@@ -39,6 +41,14 @@ const Button = styled.div`
 
 function CommentItem({ comment }: any) {
   const dispatch = useDispatch();
+  const isButtonDisabled = useSelector(
+    (state: RootState) => state.comment.buttonDisabled,
+  );
+  const updateHandler = () => {
+    dispatch(editComment(comment.id));
+    disableButton(dispatch);
+  };
+
   return (
     <Comment key={comment.id}>
       <img src={comment.profile_url} alt="profile_url" />
@@ -46,7 +56,11 @@ function CommentItem({ comment }: any) {
       <CreatedAt>{comment.createdAt}</CreatedAt>
       <Content>{comment.content}</Content>
       <Button>
-        <button type="button" onClick={() => dispatch(editComment(comment.id))}>
+        <button
+          type="button"
+          onClick={updateHandler}
+          disabled={isButtonDisabled}
+        >
           수정
         </button>
         <CommentDelete id={comment.id} />

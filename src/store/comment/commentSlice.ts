@@ -13,6 +13,7 @@ const commentInitialState: CommentState = {
   pageCount: 5,
   firstPage: 1,
   lastPage: 5,
+  buttonDisabled: false,
 };
 
 const commentSlice = createSlice({
@@ -53,6 +54,9 @@ const commentSlice = createSlice({
         state.currentSection === 1
           ? 1
           : state.currentSection * state.pageCount - state.pageCount + 1;
+    },
+    setButtonDisabled(state, action) {
+      state.buttonDisabled = action.payload;
     },
   },
   extraReducers: builder => {
@@ -100,6 +104,7 @@ export const {
   setCurrentPage,
   setPageSection,
   editComment,
+  setButtonDisabled,
 } = commentSlice.actions;
 
 export default commentSlice.reducer;

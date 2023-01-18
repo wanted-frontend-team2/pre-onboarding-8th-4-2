@@ -6,6 +6,7 @@ import {
   setInputValues,
   resetInputValues,
 } from 'src/store/comment/commentSlice';
+import disableButton from 'src/service/disableButton';
 import { actions } from '../../store/comment/commentActions';
 import { AppDispatch, RootState } from '../../store/index';
 import { INPUTS } from '../../constants/index';
@@ -38,6 +39,9 @@ function CommentForm() {
   const inputValues = useSelector(
     (state: RootState) => state.comment.inputValues,
   );
+  const isButtonDisabled = useSelector(
+    (state: RootState) => state.comment.buttonDisabled,
+  );
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -48,6 +52,7 @@ function CommentForm() {
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
 
+    disableButton(dispatch);
     if (inputValues.id === -1) dispatch(actions.createCommentData(inputValues));
     else dispatch(actions.updateCommentData(inputValues));
     dispatch(resetInputValues());
@@ -77,7 +82,9 @@ function CommentForm() {
           />
         ),
       )}
-      <button type="submit">등록</button>
+      <button type="submit" disabled={isButtonDisabled}>
+        등록
+      </button>
     </FormStyle>
   );
 }
