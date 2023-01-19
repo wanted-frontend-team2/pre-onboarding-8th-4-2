@@ -100,7 +100,8 @@ const commentSlice = createSlice({
   },
 });
 
-export const getComments = (state: any) => state.comment.comments;
+export const getComments = (state: { comment: CommentState }) =>
+  state.comment.comments;
 
 export const {
   setInputValues,
