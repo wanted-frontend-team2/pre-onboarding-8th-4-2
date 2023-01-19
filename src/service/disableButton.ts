@@ -1,4 +1,5 @@
 import { Dispatch } from '@reduxjs/toolkit';
+
 import { setButtonDisabled } from 'src/store/comment/commentSlice';
 
 export default function disableButton(dispatch: Dispatch) {

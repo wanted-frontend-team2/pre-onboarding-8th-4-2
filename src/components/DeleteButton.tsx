@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import disableButton from 'src/service/disableButton';
-import { AppDispatch, RootState } from '../store/index';
 
-import { actions } from '../store/comment/commentActions';
-import { DeltePropsType } from '../types/index';
+import { AppDispatch, RootState } from 'src/store';
+import { actions } from 'src/store/comment/commentActions';
+import { DeltePropsType } from 'src/types';
+import disableButton from 'src/service/disableButton';
 
 function CommentDelete({ id }: DeltePropsType) {
   const dispatch = useDispatch<AppDispatch>();

@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'src/store';
-import { setCurrentPage, setPageSection } from 'src/store/comment/commentSlice';
 import styled from 'styled-components';
 
+import { RootState } from 'src/store';
+import { setCurrentPage, setPageSection } from 'src/store/comment/commentSlice';
+
 const PageListStyle = styled.div`
-  margin-bottom: 20px;
+  margin: 20px 0;
   text-align: center;
 `;
 
@@ -13,18 +14,23 @@ type PageProps = {
 };
 
 const Page = styled.button<PageProps>`
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border: 1px solid lightgray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  background: #f8f9fe;
+  cursor: pointer;
+
   ${({ active }) =>
     active &&
     `
-        background: gray;
+        background: #b0bde5;
         color: #fff;
   `}
-  margin-right: 3px;
+
+  margin: 3px;
+  border: none;
 `;
 
 function Pages() {

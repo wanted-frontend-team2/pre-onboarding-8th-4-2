@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { AppDispatch, RootState } from '../../store/index';
-import { actions } from '../../store/comment/commentActions';
-import { getComments } from '../../store/comment/commentSlice';
-import { CommentItemType } from '../../types/index';
+import { AppDispatch, RootState } from 'src/store';
+import { actions } from 'src/store/comment/commentActions';
+import { getComments } from 'src/store/comment/commentSlice';
+import { CommentItemType } from 'src/types';
+import PageList from 'src/components/PageList';
 
 import CommentItem from './CommentItem';
-import PageList from '../PageList';
 import CommentForm from './CommentForm';
 
 function Comments() {

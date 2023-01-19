@@ -1,45 +1,71 @@
 import { useDispatch, useSelector } from 'react-redux';
-import disableButton from 'src/service/disableButton';
-import { RootState } from 'src/store';
-import { editComment } from 'src/store/comment/commentSlice';
 import styled from 'styled-components';
-import CommentDelete from '../DeleteButton';
 
-const Comment = styled.div`
-  padding: 7px 10px;
-  text-align: left;
+import disableButton from 'src/service/disableButton';
+import CommentDelete from 'src/components/DeleteButton';
+import { editComment } from 'src/store/comment/commentSlice';
+import { RootState } from 'src/store';
+import { CommentItemType } from 'src/types';
 
-  & > img {
+const CommentWrap = styled.div`
+  padding-top: 25px;
+`;
+
+const CommentBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Profile = styled.div`
+  display: flex;
+  img {
+    margin-top: 5px;
     vertical-align: middle;
     margin-right: 10px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+  }
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
   }
 `;
 
 const CreatedAt = styled.div`
-  float: right;
-  vertical-align: middle;
+  margin-top: 7px;
+  font-size: 12px;
+  color: #999;
 `;
 
 const Content = styled.div`
-  margin: 10px 0;
+  margin: 20px 0 0 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #f1f1f1;
 `;
 
-const Button = styled.div`
-  text-align: right;
-  margin: 10px 0;
-  & > button {
+const Buttons = styled.div`
+  flex: none;
+  margin-left: 10px;
+  button {
     margin-right: 10px;
-    padding: 0.375rem 0.75rem;
-    border-radius: 0.25rem;
-    border: 1px solid lightgray;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: none;
+    background: #f8f9fe;
+    color: #888;
+    font-size: 12px;
+    transition: 0.2s;
     cursor: pointer;
+    &:hover {
+      background: #f3f5ff;
+      color: #222;
+    }
   }
 `;
 
-function CommentItem({ comment }: any) {
+function CommentItem({ comment }: { comment: CommentItemType }) {
   const dispatch = useDispatch();
   const isButtonDisabled = useSelector(
     (state: RootState) => state.comment.buttonDisabled,
@@ -50,24 +76,29 @@ function CommentItem({ comment }: any) {
   };
 
   return (
-    <Comment>
-      <img src={comment.profile_url} alt="profile_url" />
-      {comment.author}
-      <CreatedAt>{comment.createdAt}</CreatedAt>
-      <Content>{comment.content}</Content>
-      <Button>
-        <button
-          type="button"
-          onClick={updateHandler}
-          disabled={isButtonDisabled}
-        >
-          수정
-        </button>
-        <CommentDelete id={comment.id} />
-      </Button>
+    <CommentWrap>
+      <CommentBox>
+        <Profile>
+          <img src={comment.profile_url} alt="profile_url" />
+          <div>
+            <span>{comment.author}</span>
+            <CreatedAt>{comment.createdAt}</CreatedAt>
+          </div>
+        </Profile>
 
-      <hr />
-    </Comment>
+        <Buttons>
+          <button
+            type="button"
+            onClick={updateHandler}
+            disabled={isButtonDisabled}
+          >
+            수정
+          </button>
+          <CommentDelete id={comment.id} />
+        </Buttons>
+      </CommentBox>
+      <Content>{comment.content}</Content>
+    </CommentWrap>
   );
 }
 
