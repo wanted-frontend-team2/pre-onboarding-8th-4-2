@@ -2,9 +2,6 @@
 
 > API 서버와 통신하여 댓글과 페이지네이션을 Redux를 통해 구현한 프로젝트 입니다.
 
-[서비스 바로가기]()  
-// 배포링크 작성
-
 <br>
 
 ## 사용 스택
@@ -14,24 +11,22 @@
 
 <br>
 
-<br>
-
 ## 설치 및 실행 방법
 
 ### 클라이언트
 
-```javascript
-// start with port 3000
+```bash
+# client 실행 : localhost:3000
  $ git clone https://github.com/wanted-frontend-team2/pre-onboarding-8th-4-2.git
- $ npm i
- $ npm run start
+ $ yarn
+ $ yarn start
 ```
 
 ### 서버
 
-```javascript
-// start with port 4000
- $ npm run api
+```bash
+# server 실행 : localhost:4000
+ $ yarn api
 ```
 
 <br>
@@ -41,17 +36,18 @@
 ### 코드 상세설명
 
 [1. 댓글 CRUD 와 API 요청](https://github.com/wanted-frontend-team2/pre-onboarding-8th-4-2/wiki/1.-%EB%8C%93%EA%B8%80-CRUD-%EC%99%80-API-%EC%9A%94%EC%B2%AD)  
-[2. Pagination]()  
-[3. 댓글 CREATE, UPDATE, DELETE 후 Pagination 처리]()
+[2. Pagination](https://github.com/wanted-frontend-team2/pre-onboarding-8th-4-2/wiki/2.-Pagination)  
+[3. 댓글 CREATE, UPDATE, DELETE 후 Pagination 처리](https://github.com/wanted-frontend-team2/pre-onboarding-8th-4-2/wiki/3.-%EB%8C%93%EA%B8%80-CREATE,-UPDATE,-DELETE-%ED%9B%84-Pagination-%EC%B2%98%EB%A6%AC)
 
 <br>
 
 ### 댓글 CRUD 와 API 요청
 
-댓글 CREATE, READ, UPDATE, DELETE와 API 요청을 구현하였습니다.  
-<br>  
-[화면 캡처 GIF]  
+댓글의 CREATE, READ, UPDATE, DELETE와 API 요청을 구현하였습니다.
+
 <br>
+
+![4](https://user-images.githubusercontent.com/42338190/213345107-1116f766-1f62-43c2-80e9-29c4fb2b99f6.gif) <br>
 
 - API를 요청할 때 Redux-thunk middleware를 사용하였습니다.
   - toolkit의 createAsyncThunk를 이용하여 Action 함수도 또한 객체 형태로 구현하였습니다.
@@ -59,31 +55,26 @@
 - extraReducers를 사용하여 댓글의 읽기, 생성, 수정, 삭제 기능 reducer를 관리하였습니다.
 
 <br>
+<br>
 
 ### Pagination
 
-Redux를 이용하여 페이지네이션을 구현하였습니다.
+Redux-thunk middleware를 이용하여 페이지네이션을 구현하였습니다. 페이지 노출 단위는 5페이지이고, 댓글은 4개씩 노출되도록 구현하였습니다.
 
 <br>  
 [화면 캡처 GIF]  
 <br>
+<br>
 
 ### 댓글 CREATE, UPDATE, DELETE 후 Pagination 처리
 
+<br>   
+[화면 캡처 GIF]  
+<br>
 - 댓글을 작성하고 난 뒤, 다른 페이지에 위치하고 있었더라도 1페이지로 이동하고 입력 폼이 초기화되도록 구현하였습니다.
 - 댓글을 수정하고 난 뒤, 현재 보고있는 페이지를 유지하고 입력 폼이 초기화되도록 구현하였습니다.
 - 댓글을 삭제하고 난 뒤, 1페이지로 이동하도록 구현하였습니다.
-
-<br>   
-[화면 캡처 GIF]
 <br>
-<br>
-
-### 기타 고려한 항목
-
-// 추가적인 내용 작성 하거나 삭제 <br>  
-[화면 캡처 GIF]
-
 <br>
 
 ## 디렉토리 구조
@@ -93,15 +84,16 @@ Redux를 이용하여 페이지네이션을 구현하였습니다.
         
         └─ 📂 src
            ├─ 📂 components
-           │  └─ 📂 comment
-           │     ├─ 📝 CommentForm.tsx
-           │     ├─ 📝 CommentItem.tsx
-           │     ├─ 📝 Comments.tsx
-           │     ├─ 📝 DeleteButton.tsx
-           │     └─ 📝 PageList.tsx
+           │  ├─ 📂 comment
+           │  │  ├─ 📝 CommentForm.tsx
+           │  │  ├─ 📝 CommentItem.tsx
+           │  │  └─ 📝 Comments.tsx
+           │  ├─ 📝 DeleteButton.tsx
+           │  └─ 📝 PageList.tsx
            ├─ 📂 constants
            │  └─ 📝 index.ts
            ├─ 📂 service
+           │  ├─ 📝 disableButton.ts
            │  └─ 📝 request.ts
            ├─ 📂 store
            │  ├─ 📂 comment
