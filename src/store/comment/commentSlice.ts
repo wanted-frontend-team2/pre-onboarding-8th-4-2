@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { DEFAULT_INPUT_VALUES } from 'src/constants';
-import { CommentState } from '../../types/index';
+import { PAGE_LIMIT } from 'src/constants/request.const';
+import { CommentState } from 'src/types';
+
 import { actions } from './commentActions';
 
 const commentInitialState: CommentState = {
@@ -60,9 +63,11 @@ const commentSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(actions.getCommentData.fulfilled, (state, action) => {
-      const totalPageNumber = Math.ceil(action.payload.length / 4);
+      const totalPageNumber = Math.ceil(action.payload.length / PAGE_LIMIT);
       state.totalPage = totalPageNumber;
-      state.totalSection = Math.ceil(totalPageNumber / 5);
+      state.totalSection = Math.ceil(
+        totalPageNumber / commentInitialState.pageCount,
+      );
     });
 
     builder.addCase(actions.fetchCommentsByPage.fulfilled, (state, action) => {
