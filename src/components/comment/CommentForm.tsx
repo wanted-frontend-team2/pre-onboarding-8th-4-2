@@ -6,10 +6,10 @@ import {
   setInputValues,
   resetInputValues,
 } from 'src/store/comment/commentSlice';
+import { AppDispatch, RootState } from 'src/store';
+import { actions } from 'src/store/comment/commentActions';
+import { INPUTS } from 'src/constants';
 import disableButton from 'src/service/disableButton';
-import { actions } from '../../store/comment/commentActions';
-import { AppDispatch, RootState } from '../../store/index';
-import { INPUTS } from '../../constants/index';
 
 const FormStyle = styled.form`
   & {

@@ -1,4 +1,6 @@
 import axios from 'axios';
+
+import { GetCommentsParams } from 'src/constants/request.const';
 import { CommentItemType } from 'src/types';
 
 const instance = axios.create({
@@ -11,7 +13,7 @@ const instance = axios.create({
 const apis = {
   get: () => instance.get(`/`),
   getComments: (currentPage: number) =>
-    instance.get(`/?_page=${currentPage}&_limit=4&_order=desc&_sort=id`),
+    instance.get(`/?_page=${currentPage}`, { params: GetCommentsParams }),
   create: (comment: CommentItemType) => {
     instance.post('/', {
       author: comment.author,
