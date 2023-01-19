@@ -1,57 +1,127 @@
-## 목표
+# Comment Section and Pagination with Redux
 
-- API 서버와 통신해서 작동하는 댓글 프로젝트를 Redux를 통해 구현
+> API 서버와 통신하여 댓글과 페이지네이션을 Redux를 통해 구현한 프로젝트 입니다.
 
-## 참고자료
+<br>
 
-- API 참고사항
+## 사용 스택
 
-  - 프로젝트내에서 `npm install` 후, `npm run api` 실행 시 `[localhost:4000](http://localhost:4000)` 에 API 서버 실행
-  - [http://localhost:4000/comments](http://localhost:4000/comments)에 `GET` 요청시 `data.json` 파일에 기록된 데이터 확인 가능
-  - API 를 통해 입력하거나 수정하면 data.json 파일내용도 변경됨
-  - 총 댓글수는 `/comments` API로 호출 후 응답값을 통해서 직접 계산.
-  - 서버는 json-server 라이브러리 이용해서 구축됨
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/> <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/JsonServer-000000?style=flat-square&logo=JSON&logoColor=white"/>  
+<img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/> <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=flat-square&logo=Tailwind CSS&logoColor=white"/>
 
-    - API 사용법에 대한 추가정보는 공식문서 참고: [https://www.npmjs.com/package/json-server](https://www.npmjs.com/package/json-server)
+<br>
 
-      | method | url                   |
-      | ------ | --------------------- |
-      | GET    | /comments             |
-      | GET    | /comments/{commentId} |
-      | POST   | /comments             |
-      | PUT    | /comments/{commentId} |
-      | DELETE | /comments/{commentId} |
+## 설치 및 실행 방법
 
-  - API 호출 예시:
-    - 한페이지에 4개의 게시물이 보이고, 최근 게시물부터 정렬해서 3페이지를 보고 싶은 경우
-    - GET `/comments?_page=3&_limit=4&_order=desc&_sort=id`
+### 클라이언트
 
-## 과제 범위
+```bash
+# client 실행 : localhost:3000
+ $ git clone https://github.com/wanted-frontend-team2/pre-onboarding-8th-4-2.git
+ $ yarn
+ $ yarn start
+```
 
-1. 예시 이미지와 같이 댓글 불러오기, 작성, 수정, 삭제가 동작하도록 기능 구현
+### 서버
 
-   ![https://user-images.githubusercontent.com/12206933/83601436-8e15b780-a5ab-11ea-91ad-04a302579c90.gif](https://user-images.githubusercontent.com/12206933/83601436-8e15b780-a5ab-11ea-91ad-04a302579c90.gif)
+```bash
+# server 실행 : localhost:4000
+ $ yarn api
+```
 
-2. 페이지네이션
-3. 댓글 작성, 수정, 삭제 후 동작
-   - 댓글 작성하고 난 뒤: 다른 페이지에 위치하고 있었더라도 1페이지로 이동, 입력 폼 초기화
-   - 댓글 수정하고 난 뒤: 현재 보고있는 페이지 유지, 입력 폼 초기화
-   - 삭제하고 난 뒤: 1페이지로 이동
+<br>
 
-## 요구 사항
+## 세부 기능
 
-- Redux 환경설정은 자유롭게 진행
-  - Redux-saga or Redux-thunk 자유롭게 선택 가능
-  - 미들웨어 사용안하는 것도 가능
-- Redux logger, Redux-Devtools 설정 필수
-- Redux를 이용한 비동기 처리 필수
+### 코드 상세설명
 
-## 개발 조건 및 환경
+[1. 댓글 CRUD 와 API 요청](https://github.com/wanted-frontend-team2/pre-onboarding-8th-4-2/wiki/1.-%EB%8C%93%EA%B8%80-CRUD-%EC%99%80-API-%EC%9A%94%EC%B2%AD)  
+[2. Pagination](https://github.com/wanted-frontend-team2/pre-onboarding-8th-4-2/wiki/2.-Pagination)  
+[3. 댓글 CREATE, UPDATE, DELETE 후 Pagination 처리](https://github.com/wanted-frontend-team2/pre-onboarding-8th-4-2/wiki/3.-%EB%8C%93%EA%B8%80-CREATE,-UPDATE,-DELETE-%ED%9B%84-Pagination-%EC%B2%98%EB%A6%AC)
 
-- 언어 : JavaScript / TypeScript
-- 필수 기술: React, Redux, Redux-Logger, Redux-Devtools
-- 선택 기술:
-  - Redux Middleware
-  - 스타일 관련 라이브러리(styled-components, emotion, ui kit 등)
-  - HTTP Client(axios 등)
-- 위에 기재된 라이브러리 외 사용 불가
+<br>
+
+### 댓글 CRUD 와 API 요청
+
+댓글의 CREATE, READ, UPDATE, DELETE와 API 요청을 구현하였습니다.
+
+<br>
+
+![4](https://user-images.githubusercontent.com/42338190/213345107-1116f766-1f62-43c2-80e9-29c4fb2b99f6.gif) <br>
+
+- API를 요청할 때 Redux-thunk middleware를 사용하였습니다.
+  - toolkit의 createAsyncThunk를 이용하여 Action 함수도 또한 객체 형태로 구현하였습니다.
+  - 데이터 요청을 받아오기 위한 비동기 요청을 객체 형태로 만들어 다른 컴포넌트 내에서 보기 편하고 쉽게 접근할 수 있도록 하였습니다.
+- extraReducers를 사용하여 댓글의 읽기, 생성, 수정, 삭제 기능 reducer를 관리하였습니다.
+
+<br>
+<br>
+
+### Pagination
+
+Redux-thunk middleware를 이용하여 페이지네이션을 구현하였습니다. 페이지 노출 단위는 5페이지이고, 댓글은 4개씩 노출되도록 구현하였습니다.
+
+<br>  
+[화면 캡처 GIF]  
+<br>
+<br>
+
+### 댓글 CREATE, UPDATE, DELETE 후 Pagination 처리
+
+<br>   
+[화면 캡처 GIF]  
+<br>
+- 댓글을 작성하고 난 뒤, 다른 페이지에 위치하고 있었더라도 1페이지로 이동하고 입력 폼이 초기화되도록 구현하였습니다.
+- 댓글을 수정하고 난 뒤, 현재 보고있는 페이지를 유지하고 입력 폼이 초기화되도록 구현하였습니다.
+- 댓글을 삭제하고 난 뒤, 1페이지로 이동하도록 구현하였습니다.
+<br>
+<br>
+
+## 디렉토리 구조
+
+<details>
+    <summary>Repository Overview</summary>
+        
+        └─ 📂 src
+           ├─ 📂 components
+           │  ├─ 📂 comment
+           │  │  ├─ 📝 CommentForm.tsx
+           │  │  ├─ 📝 CommentItem.tsx
+           │  │  └─ 📝 Comments.tsx
+           │  ├─ 📝 DeleteButton.tsx
+           │  └─ 📝 PageList.tsx
+           ├─ 📂 constants
+           │  └─ 📝 index.ts
+           ├─ 📂 service
+           │  ├─ 📝 disableButton.ts
+           │  └─ 📝 request.ts
+           ├─ 📂 store
+           │  ├─ 📂 comment
+           │  │  ├─ 📝 commentActions.ts
+           │  │  └─ 📝 commentSlice.ts
+           │  └─ 📝 index.ts
+           ├─ 📂 types
+           │  └─ 📝 index.d.ts
+           ├─ 📝 App.tsx
+           └─ 📝 index.tsx
+
+</details>
+
+<br><br>
+
+## 팀원
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/trondi"><img src="https://avatars.githubusercontent.com/u/42338190?v=4" width="100px;" alt="김수경 프로필"/><br /><sub><b>김수경</b></sub></a><br />팀원<br /></td>
+      <td align="center"><a href="https://github.com/Iandayy"><img src="https://avatars.githubusercontent.com/u/104152583?v=4" width="100px;" alt="박수연 프로필"/><br /><sub><b>박수연</b></sub></a><br />팀원<br /></td>
+      <td align="center"><a href="https://github.com/ahn0min"><img src="https://avatars.githubusercontent.com/u/89904226?v=4" width="100px;" alt="안영민 프로필"/><br /><sub><b>안영민</b></sub></a><br />팀원<br /></td>
+          <td align="center"><a href="https://github.com/heony704"><img src="https://avatars.githubusercontent.com/u/36994104?v=4" width="100px;" alt="이승헌 프로필"/><br /><sub><b>이승헌</b></sub></a><br />팀원<br /></td>
+     <tr/>
+      <td align="center"><a href="https://github.com/Jooseulgi"><img src="https://avatars.githubusercontent.com/u/54945205?v=4" width="100px;" alt="주슬기 프로필"/><br /><sub><b>주슬기</b></sub></a><br />팀원<br /></td>
+      <td align="center"><a href="https://github.com/dukjjang"><img src="https://avatars.githubusercontent.com/u/102455275?v=4" width="100px;" alt="진현덕 프로필"/><br /><sub><b>진현덕</b></sub></a><br />팀원<br /></td>
+      <td align="center"><a href="https://github.com/cofla159"><img src="https://avatars.githubusercontent.com/u/70076564?v=4" width="100px;" alt="황채림 프로필"/><br /><sub><b>황채림</b></sub></a><br />팀장<br /></td>
+    </tr>
+  </tbody>
+</table>
