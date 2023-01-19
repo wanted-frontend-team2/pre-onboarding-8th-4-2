@@ -12,25 +12,39 @@ import { INPUTS } from 'src/constants';
 import disableButton from 'src/service/disableButton';
 
 const FormStyle = styled.form`
-  & {
-    padding: 0 10px;
-    margin-bottom: 50px;
-  }
-  & > textarea {
-    padding: 5px 1%;
-    width: 98%;
-    height: 50px;
-  }
-  & > input[type='text'] {
-    padding: 5px 1%;
+  textarea {
     width: 100%;
-    margin-bottom: 10px;
+    padding: 5px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: none;
+    &:focus {
+      outline: none;
+    }
   }
-  & > button {
-    padding: 0.375rem 0.75rem;
-    border-radius: 0.25rem;
-    border: 1px solid lightgray;
+  input[type='text'] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    border: 1px solid #ddd;
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 0;
+    background: #ececf9;
     cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      background: #c4c8ff;
+    }
   }
 `;
 
