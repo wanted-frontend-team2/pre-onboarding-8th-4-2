@@ -5,6 +5,7 @@ import disableButton from 'src/service/disableButton';
 import CommentDelete from 'src/components/DeleteButton';
 import { editComment } from 'src/store/comment/commentSlice';
 import { RootState } from 'src/store';
+import { CommentItemType } from 'src/types';
 
 const Comment = styled.div`
   padding: 7px 10px;
@@ -40,7 +41,7 @@ const Button = styled.div`
   }
 `;
 
-function CommentItem({ comment }: any) {
+function CommentItem({ comment }: { comment: CommentItemType }) {
   const dispatch = useDispatch();
   const isButtonDisabled = useSelector(
     (state: RootState) => state.comment.buttonDisabled,
