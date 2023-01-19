@@ -71,13 +71,14 @@ Redux-thunk middleware를 이용하여 페이지네이션을 구현하였습니�
 ### 댓글 CREATE, UPDATE, DELETE 후 Pagination 처리
 
 <br>
-
-![3](https://user-images.githubusercontent.com/42338190/213346435-99d6e41e-073b-403c-a90e-88f8fdb7422d.gif)
-
-<br>
 - 댓글을 작성하고 난 뒤, 다른 페이지에 위치하고 있었더라도 1페이지로 이동하고 입력 폼이 초기화되도록 구현하였습니다.
 - 댓글을 수정하고 난 뒤, 현재 보고있는 페이지를 유지하고 입력 폼이 초기화되도록 구현하였습니다.
 - 댓글을 삭제하고 난 뒤, 1페이지로 이동하도록 구현하였습니다.
+
+<br>
+
+![3](https://user-images.githubusercontent.com/42338190/213346435-99d6e41e-073b-403c-a90e-88f8fdb7422d.gif)
+
 <br>
 <br>
 
