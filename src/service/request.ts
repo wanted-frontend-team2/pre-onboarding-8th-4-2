@@ -11,15 +11,17 @@ const instance = axios.create({
 const apis = {
   get: () => instance.get(`/`),
   getComments: (currentPage: number) =>
-    instance.get(`/?_page=${currentPage}&_limit=4&_order=desc&_sort=createdAt`),
-  create: (comment: CommentItemType) =>
+    instance.get(`/?_page=${currentPage}&_limit=4&_order=desc&_sort=id`),
+  create: (comment: CommentItemType) => {
     instance.post('/', {
-      id: Number((Math.random() * 1000).toFixed(0)),
       author: comment.author,
       content: comment.content,
-      profile_url: comment.profile_url,
+      profile_url: comment.profile_url
+        ? comment.profile_url
+        : process.env.REACT_APP_DAFAULT_PROFILE_URL,
       createdAt: comment.createdAt,
-    }),
+    });
+  },
   update: (comment: CommentItemType) => instance.put(`/${comment.id}`, comment),
   delete: (id: number) => instance.delete(`/${id}`),
 };

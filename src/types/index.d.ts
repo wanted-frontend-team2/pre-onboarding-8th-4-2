@@ -16,6 +16,7 @@ export interface CommentState {
   pageCount: number;
   firstPage: number;
   lastPage: number;
+  buttonDisabled: boolean;
 }
 
 export type CommentItemPropsType = {
