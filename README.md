@@ -47,7 +47,9 @@
 
 <br>
 
-![4](https://user-images.githubusercontent.com/42338190/213345107-1116f766-1f62-43c2-80e9-29c4fb2b99f6.gif) <br>
+![4](https://user-images.githubusercontent.com/42338190/213345107-1116f766-1f62-43c2-80e9-29c4fb2b99f6.gif)
+
+<br>
 
 - API를 요청할 때 Redux-thunk middleware를 사용하였습니다.
   - toolkit의 createAsyncThunk를 이용하여 Action 함수도 또한 객체 형태로 구현하였습니다.
@@ -61,15 +63,17 @@
 
 Redux-thunk middleware를 이용하여 페이지네이션을 구현하였습니다. 페이지 노출 단위는 5페이지이고, 댓글은 4개씩 노출되도록 구현하였습니다.
 
-<br>  
-[화면 캡처 GIF]  
+![4](https://user-images.githubusercontent.com/42338190/213346071-24f10620-a4ca-4995-8ca1-8845c014484e.gif)
+
 <br>
 <br>
 
 ### 댓글 CREATE, UPDATE, DELETE 후 Pagination 처리
 
-<br>   
-[화면 캡처 GIF]  
+<br>
+
+![3](https://user-images.githubusercontent.com/42338190/213346435-99d6e41e-073b-403c-a90e-88f8fdb7422d.gif)
+
 <br>
 - 댓글을 작성하고 난 뒤, 다른 페이지에 위치하고 있었더라도 1페이지로 이동하고 입력 폼이 초기화되도록 구현하였습니다.
 - 댓글을 수정하고 난 뒤, 현재 보고있는 페이지를 유지하고 입력 폼이 초기화되도록 구현하였습니다.
