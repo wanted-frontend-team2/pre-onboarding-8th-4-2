@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import disableButton from 'src/service/disableButton';
-import { RootState } from 'src/store';
-import { editComment } from 'src/store/comment/commentSlice';
 import styled from 'styled-components';
-import CommentDelete from '../DeleteButton';
+
+import disableButton from 'src/service/disableButton';
+import CommentDelete from 'src/components/DeleteButton';
+import { editComment } from 'src/store/comment/commentSlice';
+import { RootState } from 'src/store';
 
 const Comment = styled.div`
   padding: 7px 10px;

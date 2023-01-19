@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+
 import { RootState } from 'src/store';
 import { setCurrentPage, setPageSection } from 'src/store/comment/commentSlice';
-import styled from 'styled-components';
 
 const PageListStyle = styled.div`
   margin-bottom: 20px;
