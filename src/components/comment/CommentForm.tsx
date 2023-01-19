@@ -2,7 +2,11 @@ import { ChangeEvent, FormEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { setInputValues } from 'src/store/comment/commentSlice';
+import {
+  setInputValues,
+  resetInputValues,
+} from 'src/store/comment/commentSlice';
+import disableButton from 'src/service/disableButton';
 import { actions } from '../../store/comment/commentActions';
 import { AppDispatch, RootState } from '../../store/index';
 import { INPUTS } from '../../constants/index';
@@ -19,7 +23,7 @@ const FormStyle = styled.form`
   }
   & > input[type='text'] {
     padding: 5px 1%;
-    width: 98%;
+    width: 100%;
     margin-bottom: 10px;
   }
   & > button {
@@ -35,6 +39,9 @@ function CommentForm() {
   const inputValues = useSelector(
     (state: RootState) => state.comment.inputValues,
   );
+  const isButtonDisabled = useSelector(
+    (state: RootState) => state.comment.buttonDisabled,
+  );
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -45,13 +52,14 @@ function CommentForm() {
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
 
-    console.log(inputValues);
+    disableButton(dispatch);
     if (inputValues.id === -1) dispatch(actions.createCommentData(inputValues));
     else dispatch(actions.updateCommentData(inputValues));
+    dispatch(resetInputValues());
   };
 
   return (
-    <FormStyle>
+    <FormStyle onSubmit={submitHandler}>
       {INPUTS.map(input =>
         input.name === 'content' ? (
           <textarea
@@ -60,18 +68,21 @@ function CommentForm() {
             value={inputValues[input.name]}
             className="input"
             {...input}
+            required
           />
         ) : (
           <input
+            type="text"
             onChange={handleChange}
             value={inputValues[input.name]}
             key={input.name}
             className="input"
             {...input}
+            required={input.name === 'author'}
           />
         ),
       )}
-      <button type="submit" onClick={submitHandler}>
+      <button type="submit" disabled={isButtonDisabled}>
         등록
       </button>
     </FormStyle>

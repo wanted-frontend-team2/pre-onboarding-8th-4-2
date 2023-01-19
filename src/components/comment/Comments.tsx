@@ -7,7 +7,7 @@ import { getComments } from '../../store/comment/commentSlice';
 import { CommentItemType } from '../../types/index';
 
 import CommentItem from './CommentItem';
-import PageList from './PageList';
+import PageList from '../PageList';
 import CommentForm from './CommentForm';
 
 function Comments() {
@@ -25,7 +25,7 @@ function Comments() {
   return (
     <>
       {comments.map((comment: CommentItemType) => (
-        <CommentItem key={Math.random() * 100} comment={comment} />
+        <CommentItem key={comment.id} comment={comment} />
       ))}
       <PageList />
       <CommentForm />

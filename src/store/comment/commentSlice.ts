@@ -13,6 +13,7 @@ const commentInitialState: CommentState = {
   pageCount: 5,
   firstPage: 1,
   lastPage: 5,
+  buttonDisabled: false,
 };
 
 const commentSlice = createSlice({
@@ -22,18 +23,14 @@ const commentSlice = createSlice({
     setInputValues(state, action) {
       state.inputValues[action.payload.name] = action.payload.value;
     },
+    resetInputValues(state) {
+      state.inputValues = DEFAULT_INPUT_VALUES;
+    },
     editComment(state, action) {
       const target = state.comments.find(
         comment => comment.id === action.payload,
       );
-      if (target)
-        state.inputValues = {
-          id: target.id,
-          profile_url: target.profile_url,
-          author: target.author,
-          content: target.content,
-          createdAt: target?.createdAt,
-        };
+      if (target) state.inputValues = target;
     },
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
@@ -45,8 +42,7 @@ const commentSlice = createSlice({
       }
       if (action.payload === 'prev') {
         state.currentSection -= 1;
-        state.currentPage =
-          state.currentSection * state.pageCount - (state.pageCount - 1);
+        state.currentPage = state.currentSection * state.pageCount;
       }
       state.lastPage =
         state.currentSection * state.pageCount > state.totalPage
@@ -57,6 +53,9 @@ const commentSlice = createSlice({
         state.currentSection === 1
           ? 1
           : state.currentSection * state.pageCount - state.pageCount + 1;
+    },
+    setButtonDisabled(state, action) {
+      state.buttonDisabled = action.payload;
     },
   },
   extraReducers: builder => {
@@ -98,7 +97,13 @@ const commentSlice = createSlice({
 
 export const getComments = (state: any) => state.comment.comments;
 
-export const { setInputValues, setCurrentPage, setPageSection, editComment } =
-  commentSlice.actions;
+export const {
+  setInputValues,
+  resetInputValues,
+  setCurrentPage,
+  setPageSection,
+  editComment,
+  setButtonDisabled,
+} = commentSlice.actions;
 
 export default commentSlice.reducer;
