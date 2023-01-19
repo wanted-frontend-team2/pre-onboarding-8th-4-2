@@ -50,7 +50,7 @@ function CommentItem({ comment }: any) {
   };
 
   return (
-    <Comment key={comment.id}>
+    <Comment>
       <img src={comment.profile_url} alt="profile_url" />
       {comment.author}
       <CreatedAt>{comment.createdAt}</CreatedAt>

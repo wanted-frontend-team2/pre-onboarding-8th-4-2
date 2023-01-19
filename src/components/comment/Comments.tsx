@@ -25,7 +25,7 @@ function Comments() {
   return (
     <>
       {comments.map((comment: CommentItemType) => (
-        <CommentItem key={Math.random() * 100} comment={comment} />
+        <CommentItem key={comment.id} comment={comment} />
       ))}
       <PageList />
       <CommentForm />
